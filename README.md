@@ -1,151 +1,150 @@
-# MarkAtlas
+# MarkAtlas 🗺️📝
 
-Este projeto é uma API para processar pedidos de compra (Supply Requests) e calcular os impostos brasileiros (ICMS, IPI, PIS, COFINS, ISS) usando a biblioteca `brazilian-tax`. Ele inclui um chatbot simples para consultar impostos por estado.
+**MarkAtlas** é um leitor e editor desktop para arquivos Markdown (`.md`), focado em **Gestão de Conhecimento Pessoal (PKM - *Personal Knowledge Management*)**. 
 
-## 📁 Estrutura do Projeto
+Desenvolvido em **Python e GTK** com estilização modular em **CSS**, o MarkAtlas foi projetado para transformar notas locais em um atlas de conhecimento visual, organizado e interativo. É uma alternativa leve, rápida e com baixo consumo de memória aos softwares pesados baseados em Electron.
+
+---
+
+## 🌟 Principais Recursos
+
+- **📝 Leitor e Editor de Markdown Rico**:
+  - Escrita e leitura fluida com suporte completo à sintaxe Markdown.
+  - Suporte a metadados e cabeçalho **YAML Frontmatter** (título, tags, data).
+  - Destaque de sintaxe (*Syntax Highlighting*) para diversas linguagens de programação (Python, JavaScript, TypeScript, SQL, JSON, XML, etc.).
+  - Renderização integrada de diagramas e fluxogramas **Mermaid**.
+  - Suporte a listas de tarefas interativas (*checkboxes*), tabelas, citações, emojis e tags (`#tag`).
+  - *Lightbox* interativo de imagens integrado com suporte a zoom in/out.
+
+- **📁 Gestão de Cofres (Vaults) sem Lock-in**:
+  - Seus dados pertencem a você: arquivos salvos diretamente como pastas e arquivos `.md` locais no seu disco.
+  - **100% Offline-First e Privado**: sem dependência de nuvem, contas ou telemetria.
+  - **Interoperabilidade Total**: compatível nativamente com Obsidian, VS Code, Logseq, Typora ou qualquer editor de texto.
+  - Navegação visual em árvore do diretório do workspace com operações de criar, renomear e excluir arquivos e pastas.
+
+- **🎨 Design Moderno & Temas**:
+  - Interface moderna com suporte nativo a temas **Dark** e **Light**.
+  - Tokens visuais e estilização via `Gtk.CssProvider`.
+  - Controle de acessibilidade com ajuste dinâmico do tamanho da fonte para leitura confortável.
+
+- **🤖 Preparado para IA e Versionamento**:
+  - Projetado para fácil versionamento de conhecimento com Git e GitHub.
+  - Estrutura de dados limpa e semântica ideal para ser consumida e consultada por agentes de IA e sistemas RAG.
+
+---
+
+## 🏛️ Arquitetura do Projeto
+
+O MarkAtlas segue o padrão **MVC (Model-View-Controller) + Repository**, combinando tipagem estrita no Python e separação de responsabilidades guiada por **Spec-Driven Development (SDD)**:
 
 ```
 markatlas/
+├── assets/
+│   ├── icons/                 # Ícones da interface
+│   └── styles/                # Folhas de estilo CSS (main, tokens, editor, sidebar)
 ├── src/
-│   ├── chatbot/
-│   │   ├── config.py            # Configurações do Gemini (API Key)
-│   │   ├── database.py          # Banco de dados SQLite para histórico
-│   │   ├── intent_classifier.py # Classificador de intenções (regex + IA)
-│   │   ├── utils.py             # Funções utilitárias
-│   │   └── main.py              # Ponto de entrada do chatbot
-│   ├── core/
-│   │   └── tax_calculator.py    # Cálculo de impostos
-│   ├── models/
-│   │   ├── data_models.py       # Modelos Pydantic (SupplyRequest, TaxResponse)
-│   │   └── schema.sql           # Script de criação do banco de dados
-│   ├── server/
-│   │   ├── api_config.py        # Configurações da API
-│   │   ├── middleware.py        # Middlewares (cors, rate limit, auth)
-│   │   └── main.py              # Ponto de entrada da API (FastAPI)
-│   ├── utils/
-│   │   └── helper_functions.py  # Funções auxiliares
-│   └── prompts/
-│       └── tax_classification.txt # Template de prompt para IA
-├── openspec/
-│   ├── specifications/          # Especificações técnicas e de arquitetura
-│   ├── api-documentation.md     # Documentação da API (Swagger/OpenAPI)
-│   └── system.md                # Documentação geral do sistema
-├── .agent/                      # Configurações de IA do Antigravity
-├── .env                         # Variáveis de ambiente (NÃO INCLUIR NO GIT)
-├── .gitignore                   # Arquivos ignorados pelo Git
-├── README.md                    # Este arquivo
-├── requirements.txt             # Dependências do projeto
-└── schema.sql                   # SQL para schema do banco de dados (backup/referência)
+│   ├── core/                  # Configurações, EventBus, StyleManager e exceções
+│   ├── models/                # Entidades de domínio puras (Note, Vault, Tag, Backlink)
+│   ├── repositories/          # Repositórios de persistência em disco (NoteRepository, VaultRepository)
+│   ├── services/              # Casos de uso e serviços de Markdown, Mermaid e realce de sintaxe
+│   ├── controllers/           # Orquestração entre Views e Serviços (WorkspaceController)
+│   ├── views/                 # Widgets e componentes GTK (MainWindow, MarkdownEditor, WorkspaceTree, Lightbox)
+│   └── main.py                # Ponto de entrada interno da aplicação
+├── tests/
+│   └── unit/                  # Cobertura abrangente de testes unitários
+├── .agents/                   # Diretrizes arquiteturais, visão de produto e design system
+├── main.py                    # Ponto de entrada raiz
+├── pyproject.toml             # Configuração do projeto e dependências (PEP 621)
+├── requirements.txt           # Lista de dependências Python
+├── run.bat / run.ps1          # Scripts de inicialização rápida
+└── LICENSE                    # Licença MIT
 ```
+
+---
 
 ## 🚀 Como Executar
 
-### 1. Instalar Dependências
+### Pré-requisitos
+
+- **Python 3.11+**
+- **GTK 3 ou GTK 4** com suporte a **PyGObject**
+
+### 1. Clonar o Repositório
 
 ```bash
+git clone https://github.com/ClaudioRicardo/MarkAtlas.git
+cd MarkAtlas
+```
+
+### 2. Instalar Dependências Python
+
+Recomenda-se o uso de um ambiente virtual:
+
+```bash
+python -m venv .venv
+
+# No Linux/macOS:
+source .venv/bin/activate
+
+# No Windows:
+.venv\Scripts\activate
+
 pip install -r requirements.txt
 ```
 
-### 2. Configurar Variáveis de Ambiente
+> **Nota sobre o PyGObject no Windows**: No Windows, o GTK e PyGObject são recomendados via ambiente **MSYS2 (UCRT64)** (`pacman -S mingw-w64-ucrt-x86_64-python-gobject mingw-w64-ucrt-x86_64-gtk3`).
 
-Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+### 3. Iniciar a Aplicação
 
-```env
-GEMINI_API_KEY=sua_api_key_google_aqui
-RATE_LIMIT_MAX_REQUESTS=10
-RATE_LIMIT_WINDOW_SECONDS=60
-```
+- **Diretamente via Python**:
+  ```bash
+  python main.py
+  ```
 
-### 3. Executar a API
+- **No Windows (com MSYS2 configurado)**:
+  ```cmd
+  run.bat
+  ```
+  *ou no PowerShell:*
+  ```powershell
+  .\run.ps1
+  ```
 
-```bash
-uvicorn src.server.main:app --reload
-```
+---
 
-### 4. Interagir com o Chatbot
+## 🧪 Executando os Testes
 
-O chatbot está disponível na CLI. Execute:
-
-```bash
-uvicorn src.chatbot.main
-```
-
-ou rode os testes:
-
-```bash
-pytest tests/chatbot/test_integration.py
-```
-
-## 🔌 Endpoints da API
-
-### Calcular Impostos
-```http
-POST /tax/calculate
-
-Body:
-{
-  "product_name": "Produto Teste",
-  "quantity": 10,
-  "unit_price": 150.0,
-  "origin_state": "sp",
-  "destination_state": "rj",
-  "tax_regime": "lucro_presumido"
-}
-```
-
-### Chatbot
-```http
-POST /chatbot/ask
-
-Body:
-{
-  "user_id": "user123",
-  "message": "Qual é o ICMS para SP?"
-}
-```
-
-## 🔧 Configuração do Chatbot
-
-O chatbot usa:
-- **Gemini API** para compreensão de linguagem natural
-- **SQLite** para armazenar histórico de conversas
-- **Regex + IA** para classificar intenções
-
-### Criar Banco de Dados (Se não existir)
-```bash
-python -c "import sqlite3; conn = sqlite3.connect('chatbot.db'); conn.execute('CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY, user_id TEXT, message TEXT, response TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)'); conn.commit(); conn.close()"
-```
-
-## 📚 Documentação
-
-- [Documentação da API](openspec/api-documentation.md)
-- [Especificações Técnicas](openspec/specifications/)
-- [Arquitetura do Sistema](openspec/system.md)
-
-## 📋 Testes
+A suíte de testes unitários é executada com `pytest`:
 
 ```bash
 pytest tests/
 ```
 
-## 🤝 Colaboração
+---
 
-### Como Contribuir
-1. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-2. Commite suas mudanças (`git commit -m 'feat: Add some AmazingFeature'`)
-3. Push para a branch (`git push origin feature/AmazingFeature`)
-4. Abra um Pull Request
+## 🗺️ Roadmap & Visão de Futuro
 
-### Padrões
-- Siga os padrões do PEP 8 para Python
-- Use docstrings para todas as funções e classes
-- Siga as convenções de tipos Pydantic
-- Use o arquivo `schema.sql` como referência para o schema do banco de dados
+- [x] Criação, visualização, edição e exclusão de notas Markdown
+- [x] Organização em árvore de diretórios e cofres locais
+- [x] Suporte a metadados Frontmatter e tags
+- [x] Syntax Highlighting e renderização de diagramas Mermaid
+- [ ] Visualização de notas em Grafo de conexões
+- [ ] Importação e conversão de múltiplos formatos (PDF, HTML, ePub) para Markdown
+- [ ] Sistema de busca em texto completo e links bidirecionais (`[[Nota]]`)
+
+---
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob os termos da **Licença MIT**. Consulte o arquivo [LICENSE](LICENSE) para obter mais informações.
 
-## 📞 Suporte
+---
 
-Para suporte, abra uma issue no repositório.
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas!
+1. Faça um Fork do projeto
+2. Crie uma branch para a sua funcionalidade (`git checkout -b feat/minha-feature`)
+3. Faça o commit das alterações (`git commit -m 'feat: adiciona nova funcionalidade'`)
+4. Envie para o branch (`git push origin feat/minha-feature`)
+5. Abra um Pull Request
