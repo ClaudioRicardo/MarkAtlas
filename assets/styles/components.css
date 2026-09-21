@@ -1,0 +1,195 @@
+/* ==========================================================================
+   MarkAtlas - Componentes Reutilizáveis (Botões, Inputs, Badges, Header Controls)
+   ========================================================================== */
+
+/* Botão Primário */
+button.btn-primary,
+headerbar button.btn-primary,
+button.btn-primary:backdrop,
+headerbar button.btn-primary:backdrop {
+    background-color: @accent_blue;
+    background-image: none;
+    color: #ffffff;
+    border: 1px solid @accent_blue;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: none;
+    text-shadow: none;
+    transition: all 150ms ease-in-out;
+}
+
+button.btn-primary:hover,
+headerbar button.btn-primary:hover {
+    background-color: @accent_blue_hover;
+    background-image: none;
+    border-color: @accent_blue_hover;
+    color: #ffffff;
+}
+
+button.btn-primary:active,
+headerbar button.btn-primary:active {
+    background-color: @accent_blue;
+    background-image: none;
+    color: #ffffff;
+}
+
+/* Botão Secundário / Neutro */
+button.btn-secondary,
+headerbar button.btn-secondary,
+button.btn-secondary:backdrop,
+headerbar button.btn-secondary:backdrop {
+    background-color: @bg_card;
+    background-image: none;
+    color: @fg_primary;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 14px;
+    border: 1px solid @border_subtle;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+button.btn-secondary:hover,
+headerbar button.btn-secondary:hover {
+    background-color: @bg_hover;
+    background-image: none;
+    color: @fg_primary;
+}
+
+/* Botão Ícone / Alternância de Tema */
+button.btn-icon,
+headerbar button.btn-icon,
+button.btn-icon:backdrop,
+headerbar button.btn-icon:backdrop {
+    background-color: @bg_card;
+    background-image: none;
+    color: @fg_primary;
+    border-radius: 6px;
+    padding: 6px 12px;
+    border: 1px solid @border_subtle;
+    box-shadow: none;
+    text-shadow: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+button.btn-icon:hover,
+headerbar button.btn-icon:hover {
+    background-color: @bg_hover;
+    background-image: none;
+    color: @fg_primary;
+    border-color: @border_focus;
+}
+
+/* Campo de Busca */
+entry.search-input {
+    background-color: @bg_card;
+    background-image: none;
+    color: @fg_primary;
+    border: 1px solid @border_subtle;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    box-shadow: none;
+}
+
+entry.search-input:focus {
+    border-color: @border_focus;
+    box-shadow: none;
+}
+
+/* Badges e Tags */
+.tag-badge {
+    background-color: rgba(59, 130, 246, 0.15);
+    background-image: none;
+    color: @accent_blue;
+    border-radius: 12px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tag-badge:hover {
+    background-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Barra de Status no Rodapé */
+.status-bar {
+    background-color: @bg_darker;
+    background-image: none;
+    border-top: 1px solid @border_subtle;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: @fg_muted;
+}
+
+/* ==========================================================================
+   Image Lightbox Modal
+   ========================================================================== */
+
+dialog.image-lightbox-dialog,
+window.image-lightbox-dialog {
+    background-color: @bg_darker;
+    background-image: none;
+    border: 1px solid @border_subtle;
+}
+
+.lightbox-toolbar {
+    background-color: @bg_sidebar;
+    background-image: none;
+    border-bottom: 1px solid @border_subtle;
+    padding: 10px 16px;
+}
+
+.lightbox-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: @fg_primary;
+}
+
+.lightbox-zoom-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: @accent_blue;
+    padding: 0 6px;
+    min-width: 44px;
+}
+
+button.btn-lightbox {
+    background-color: @bg_card;
+    background-image: none;
+    color: @fg_primary;
+    border: 1px solid @border_subtle;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+button.btn-lightbox:hover {
+    background-color: @bg_hover;
+    border-color: @border_focus;
+}
+
+button.btn-lightbox-close {
+    background-color: rgba(239, 68, 68, 0.15);
+    background-image: none;
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+button.btn-lightbox-close:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.lightbox-scrolled {
+    background-color: @bg_darker;
+    background-image: none;
+}

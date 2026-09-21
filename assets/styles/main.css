@@ -1,0 +1,117 @@
+/* ==========================================================================
+   MarkAtlas - CSS Global & Estrutura Base
+   ========================================================================== */
+
+/* Janela Principal */
+window.main-window,
+window {
+    background-color: @bg_dark;
+    background-image: none;
+    color: @fg_primary;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-size: 15px;
+}
+
+/* HeaderBar & Barra de Título */
+headerbar,
+headerbar:backdrop,
+.titlebar,
+.titlebar:backdrop,
+headerbar.header-bar,
+headerbar.header-bar:backdrop {
+    background-color: @bg_darker;
+    background-image: none;
+    border-bottom: 1px solid @border_subtle;
+    box-shadow: none;
+    color: @fg_primary;
+    padding: 8px 14px;
+}
+
+headerbar .title,
+headerbar:backdrop .title,
+.titlebar .title,
+.titlebar:backdrop .title {
+    font-weight: 700;
+    font-size: 15px;
+    color: @fg_primary;
+}
+
+headerbar .subtitle,
+headerbar:backdrop .subtitle,
+.titlebar .subtitle,
+.titlebar:backdrop .subtitle {
+    color: @fg_secondary;
+    font-size: 13px;
+}
+
+/* Barra de Menus da Aplicação */
+menubar.app-menu-bar,
+menubar {
+    background-color: @bg_darker;
+    background-image: none;
+    border-bottom: 1px solid @border_subtle;
+    color: @fg_primary;
+    padding: 4px 8px;
+    box-shadow: none;
+}
+
+menubar > menuitem {
+    padding: 6px 12px;
+    color: @fg_secondary;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+menubar > menuitem:hover {
+    background-color: @bg_hover;
+    color: @fg_primary;
+    border-radius: 4px;
+}
+
+/* Menus Dropdown e Submenus */
+menu {
+    background-color: @bg_card;
+    background-image: none;
+    color: @fg_primary;
+    border: 1px solid @border_subtle;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+menu menuitem {
+    padding: 7px 16px;
+    color: @fg_primary;
+    font-size: 14px;
+}
+
+menu menuitem:hover {
+    background-color: @bg_active;
+    color: @fg_primary;
+    border-radius: 4px;
+}
+
+separator {
+    background-color: @border_subtle;
+    min-height: 1px;
+    margin: 4px 0;
+}
+
+/* Scrollbars Modernas */
+scrollbar {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+}
+
+scrollbar slider {
+    background-color: @border_subtle;
+    background-image: none;
+    border-radius: 4px;
+    min-width: 7px;
+    min-height: 7px;
+    border: none;
+}
+
+scrollbar slider:hover {
+    background-color: @fg_muted;
+}

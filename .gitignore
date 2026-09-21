@@ -1,0 +1,25 @@
+.agent/
+.gemini/
+.opencode/
+.venv/
+.pytest_cache/
+openspec/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+.env
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

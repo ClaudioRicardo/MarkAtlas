@@ -1,0 +1,27 @@
+/* ==========================================================================
+   MarkAtlas - Design Tokens: Dark Theme (Padrão)
+   ========================================================================== */
+
+/* Cores de Fundo (Superfícies) */
+@define-color bg_darker #12121a;
+@define-color bg_dark #181824;
+@define-color bg_card #202030;
+@define-color bg_hover #2b2b40;
+@define-color bg_active #383854;
+
+/* Cores de Frente (Tipografia & Elementos) */
+@define-color fg_primary #f0f0f5;
+@define-color fg_secondary #9c9cb3;
+@define-color fg_muted #6e6e88;
+
+/* Cores de Destaque Semântico */
+@define-color accent_blue #3b82f6;
+@define-color accent_blue_hover #60a5fa;
+@define-color accent_purple #8b5cf6;
+@define-color accent_green #10b981;
+@define-color accent_rose #f43f5e;
+@define-color accent_amber #f59e0b;
+
+/* Bordas & Divisórias */
+@define-color border_subtle #2c2c3e;
+@define-color border_focus #3b82f6;

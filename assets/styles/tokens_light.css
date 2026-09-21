@@ -1,0 +1,27 @@
+/* ==========================================================================
+   MarkAtlas - Design Tokens: Light Theme
+   ========================================================================== */
+
+/* Cores de Fundo (Superfícies) */
+@define-color bg_darker #f1f5f9;
+@define-color bg_dark #ffffff;
+@define-color bg_card #f8fafc;
+@define-color bg_hover #e2e8f0;
+@define-color bg_active #cbd5e1;
+
+/* Cores de Frente (Tipografia & Elementos) */
+@define-color fg_primary #0f172a;
+@define-color fg_secondary #475569;
+@define-color fg_muted #94a3b8;
+
+/* Cores de Destaque Semântico */
+@define-color accent_blue #2563eb;
+@define-color accent_blue_hover #1d4ed8;
+@define-color accent_purple #7c3aed;
+@define-color accent_green #059669;
+@define-color accent_rose #e11d48;
+@define-color accent_amber #d97706;
+
+/* Bordas & Divisórias */
+@define-color border_subtle #e2e8f0;
+@define-color border_focus #2563eb;

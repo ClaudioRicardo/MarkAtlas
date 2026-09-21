@@ -1,0 +1,55 @@
+/* ==========================================================================
+   MarkAtlas - Sidebar & Navegação do Workspace
+   ========================================================================== */
+
+.sidebar-container {
+    background-color: @bg_darker;
+    border-right: 1px solid @border_subtle;
+    min-width: 270px;
+    padding: 12px 10px;
+}
+
+.sidebar-header {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid @border_subtle;
+}
+
+.vault-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: @fg_primary;
+    padding: 4px 6px;
+    margin-bottom: 8px;
+}
+
+.workspace-tree-scrolled {
+    background-color: transparent;
+    border: none;
+}
+
+/* Árvore de Arquivos, Pastas e Sub-árvore de Tags */
+treeview.file-tree {
+    background-color: transparent;
+    color: @fg_secondary;
+    border: none;
+    padding: 4px;
+    font-size: 15px;
+}
+
+treeview.file-tree:selected,
+treeview.file-tree:selected:focus {
+    background-color: @bg_active;
+    color: @fg_primary;
+    border-radius: 5px;
+}
+
+treeview.file-tree:hover {
+    background-color: @bg_hover;
+    border-radius: 5px;
+}
+
+/* Expander de Pastas/Arquivos */
+treeview.file-tree expander {
+    color: @fg_secondary;
+}

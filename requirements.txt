@@ -1,0 +1,17 @@
+# Dependências principais do MarkAtlas (Python Puro)
+python-frontmatter>=1.0.0
+markdown-it-py>=3.0.0
+mistune>=3.0.0
+pyyaml>=6.0.1
+
+# Dependências de desenvolvimento e testes
+pytest>=8.0.0
+pytest-mock>=3.12.0
+black>=24.0.0
+ruff>=0.3.0
+mypy>=1.9.0
+
+# Interface Gráfica GTK (PyGObject)
+# No Linux: instalado diretamente via pip
+# No Windows: PyGObject é fornecido via MSYS2 / pacman (não possui wheel no PyPI)
+PyGObject>=3.44.0; sys_platform != "win32"

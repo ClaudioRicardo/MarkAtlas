@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "markatlas"
+version = "0.1.0"
+description = "Aplicação Desktop para Gestão de Conhecimento em Markdown seguindo MVC + Repository"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [
+    { name = "MarkAtlas Team" }
+]
+dependencies = [
+    "PyGObject>=3.44.0; sys_platform != 'win32'",
+    "python-frontmatter>=1.0.0",
+    "markdown-it-py>=3.0.0",
+    "mistune>=3.0.0",
+    "pyyaml>=6.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.12.0",
+    "black>=24.0.0",
+    "ruff>=0.3.0",
+    "mypy>=1.9.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v"
